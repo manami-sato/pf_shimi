@@ -1,0 +1,136 @@
+$deepBlue: #2183dd;
+$lightBlue: #dcf1fe;
+$pink: #fee1f2;
+$yellow: #fefddd;
+$orange: #fee9dc;
+$white: #ffffff;
+$font: "Outfit", "Yu Gothic Pr6N R", sans-serif;
+
+@mixin ttlSet {
+  font-size: 4rem;
+  font-weight: bold;
+  letter-spacing: 0.4rem;
+}
+
+@mixin indexSet($p: 32px 0, $bg: $pink) {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 90vw;
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: $p;
+  position: relative;
+  &::before {
+    content: "";
+    display: block;
+    width: calc(100% - 56px);
+    height: calc(100% - 56px);
+    background: $bg;
+    position: absolute;
+    z-index: -1;
+  }
+  &--ttl {
+    position: absolute;
+    inset: 0 auto auto 0;
+    @include ttlSet;
+  }
+}
+
+@mixin fvDecorationSet(
+  $w: 48px,
+  $h: 224px,
+  $bg:
+    url("https://click.ecc.ac.jp/ecc/msatou/shimi/img/index_fv_bg_decoration_left.png"),
+  $i: 0 auto auto 0
+) {
+  content: "";
+  display: block;
+  width: $w;
+  height: $h;
+  background: $bg;
+  background-size: contain;
+  background-position: center center;
+  background-repeat: no-repeat;
+  position: absolute;
+  inset: $i;
+}
+
+@mixin worksSet($w: 48%) {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 24px;
+  width: 80vw;
+  max-width: 880px;
+  min-width: 600px;
+  > div {
+    width: $w;
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border: 3px solid $white;
+    }
+  }
+}
+
+@mixin modalBackSet($w: 6px, $h: 40px) {
+  content: "";
+  display: block;
+  width: $w;
+  height: $h;
+  border-radius: 3px;
+  background: $deepBlue;
+  transform: rotateZ(45deg);
+  position: absolute;
+}
+
+@mixin modalContentsSet($iW: 50%, $dW: 40%, $m: 0 auto 64px) {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 85vw;
+  max-width: 1080px;
+  flex-wrap: wrap;
+  gap: 10%;
+  margin: $m;
+  &:last-child {
+    margin: 0 auto ;
+  }
+  &--img {
+    width: $iW;
+    min-width: 200px;
+    img {
+      width: 100%;
+    }
+    + div {
+      width: $dW;
+    }
+  }
+}
+
+@mixin bgPlusSet($c: $lightBlue, $bg: $deepBlue, $m: 20px 0 10px, $fs: 2rem) {
+  display: inline-flex;
+  color: $c;
+  background: $bg;
+  margin: $m;
+  padding: 4px 8px;
+  font-size: $fs;
+  line-height: $fs;
+}
+
+@mixin modalBtnSet {
+  display: flex;
+  width: max-content;
+  border: $deepBlue 2px solid;
+  border-radius: 8px;
+  box-shadow: 0 4px 0 $deepBlue;
+  padding: 4px 12px;
+  transform: 0;
+  transition: 0.2s box-shadow, 0.2s transform;
+  &:hover {
+    box-shadow: none;
+    transform: translateY(4px);
+  }
+}

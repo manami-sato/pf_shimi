@@ -1,0 +1,36 @@
+@import url("https://fonts.googleapis.com/css2?family=Outfit:wght@200&display=swap");
+@import "@/assets/scss/ress.scss";
+@import "@/assets/scss/variables.scss";
+
+* {
+  padding: 0;
+  margin: 0;
+}
+
+html {
+  font-size: 62.5%;
+}
+body {
+  color: $deepBlue;
+  font-family: $font;
+  font-size: 1.6rem;
+}
+li {
+  list-style-type: none;
+}
+
+a {
+  color: $deepBlue;
+  text-decoration: none;
+}
+
+::selection {
+  background: rgba($color: $yellow, $alpha: 0.6);
+  color: darken($color: $pink, $amount: 10%);
+}
+
+::-moz-selection {
+  //firefox
+  background: #e0e0e0;
+  color: #8a8a8a;
+}
