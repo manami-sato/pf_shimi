@@ -50,11 +50,9 @@ main.index
 /* eslint-disable */
 import Foot from "@/components/Foot";
 import Mixin from "@/mixins/Mixin";
-// import common from "../assets/js/common.js";
-// const path = "https://click.ecc.ac.jp/ecc/msatou/shimi/";
 
 export default {
-  name: "Home",
+  name: "home",
   mixins: [Mixin],
   components: {
     Foot,
@@ -84,7 +82,7 @@ export default {
         });
       } else {
         this.$router.push({
-          name: "Typography",
+          name: "typography",
           params: {
             id: `${this.contents}`,
             dataId: `${this.tabIndex}`,
@@ -119,8 +117,8 @@ export default {
     align-items: center;
     width: 100vw;
     height: 100vh;
-    background: url("https://click.ecc.ac.jp/ecc/msatou/shimi/img/index_fv_bg_border_top.png"),
-      url("https://click.ecc.ac.jp/ecc/msatou/shimi/img/index_fv_bg_border_bottom.png");
+    background: url("https://click.ecc.ac.jp/ecc/asimizu/portfolio/img/index_fv_bg_border_top.png"),
+      url("https://click.ecc.ac.jp/ecc/asimizu/portfolio/img/index_fv_bg_border_bottom.png");
     background-size: auto 16px, auto 16px;
     background-repeat: no-repeat, no-repeat;
     background-position: right 0 top 0, left 0 bottom 0;
@@ -143,7 +141,7 @@ export default {
           $w: 224px,
           $h: 48px,
           $bg:
-            url("https://click.ecc.ac.jp/ecc/msatou/shimi/img/index_fv_bg_decoration_bottom.png"),
+            url("https://click.ecc.ac.jp/ecc/asimizu/portfolio/img/index_fv_bg_decoration_bottom.png"),
           $i: auto 0 0 auto
         );
       }

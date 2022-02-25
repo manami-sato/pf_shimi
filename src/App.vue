@@ -20,14 +20,6 @@ export default {
       { charset: "utf-8" },
       { property: "og:type", content: "website" },
     ],
-    script: [
-      {
-        type: "text/javascript",
-        src:
-          "//typesquare.com/3/tsst/script/ja/typesquare.js?609c02c5ecd44d0d801e149ae90393a3",
-        async: true,
-      },
-    ],
   },
 };
 </script>

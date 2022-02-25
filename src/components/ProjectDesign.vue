@@ -9,7 +9,7 @@ section(v-if="data.project !== undefined")
 			h3.modal__project--ttl {{data.project.ttl}}
 			div.modal__project--point {{data.project.point}}
 			p.modal__project--txt {{data.project.txt}}
-	div(:style="{background:linkTxt[dId].color}",v-if="data.project.routerLinkFlag", @click="toOtherData").modal__project--link {{linkTxt[dId].ttl}}を見る
+	div(:style="{background:linkTxt[Math.abs(dId - 1)].color}",v-if="data.project.routerLinkFlag", @click="toOtherData").modal__project--link {{linkTxt[Math.abs(dId - 1)].ttl}}を見る
 </template>
 
 <script>
@@ -26,16 +26,18 @@ export default {
   },
   data() {
     return {
+      res: [],
       linkTxt: [
-        { color: "#fee1f2", ttl: "Webデザイン", id: 1, data: "web" },
         {
           color: "#dcf1fe",
           ttl: "グラフィックデザイン",
           id: 0,
-          data: "graphic",
+          route: "graphic",
         },
+        { color: "#fee1f2", ttl: "Webデザイン", id: 1, route: "web" },
       ],
       projectName: "",
+      projectNameBefore: "",
       sendDataId: 0,
       sendContentsId: 0,
     };
@@ -43,13 +45,12 @@ export default {
   methods: {
     toOtherData() {
       this.projectName = this.id.split("_")[1];
-      if (this.dId !== this.linkTxt[0].id) {
+      if (this.dId == this.linkTxt[0].id) {
         this.sendDataId = 1;
       }
+      this.projectNameBefore = this.linkTxt[this.sendDataId].route;
       this.projectName =
-        this.linkTxt[Math.abs(this.sendDataId - 1)].data +
-        "_" +
-        this.projectName;
+        this.linkTxt[this.sendDataId].route + "_" + this.projectName;
       for (let i = 0; i < this.res[this.sendDataId].length; i++) {
         if (
           this.projectName == this.res[this.sendDataId][i].img.split("_")[1]
@@ -58,7 +59,7 @@ export default {
         }
       }
       this.$router.push({
-        name: "Graphic",
+        name: `${this.projectNameBefore}`,
         params: {
           id: `${this.projectName}`,
           dataId: `${this.sendDataId}`,
@@ -67,6 +68,18 @@ export default {
         props: true,
       });
     },
+  },
+  mounted() {
+    fetch(`${this.productsData}`)
+      .then((res) => {
+        return res.json();
+      })
+      .then((json) => {
+        this.res = json;
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   },
 };
 </script>

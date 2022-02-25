@@ -17,7 +17,7 @@ import Foot from "@/components/Foot";
 import Mixin from "@/mixins/Mixin";
 
 export default {
-  name: "Graphic",
+  name: "graphic",
   mixins: [Mixin],
   components: {
     Back,

@@ -13,18 +13,18 @@ Vue.use(VueRouter);
 Vue.use(VueHead);
 // VueHeadインストール済
 // const route = "/";
+// const route = "/ecc/msatou/test/";
 const route = "/ecc/asimizu/portfolio/";
-// const route = "/ecc/msatou/shimi/";
 
 const routes = [
   {
     path: `${route}`,
-    name: "Home",
+    name: "home",
     component: Home,
   },
   {
     path: `${route}:id`,
-    name: "Graphic",
+    name: "graphic",
     component: Graphic,
     props: (route) => ({
       id: String(route.params.id),
@@ -34,7 +34,7 @@ const routes = [
   },
   {
     path: `${route}:id`,
-    name: "Web",
+    name: "web",
     component: Web,
     props: (route) => ({
       id: String(route.params.id),
@@ -44,7 +44,7 @@ const routes = [
   },
   {
     path: `${route}/typography`,
-    name: "Typography",
+    name: "typography",
     component: Typography,
     props: (route) => ({
       id: String(route.params.id),
@@ -54,7 +54,7 @@ const routes = [
   },
   {
     path: `${route}:id`,
-    name: "Internship",
+    name: "internship",
     component: Internship,
     props: (route) => ({
       id: String(route.params.id),

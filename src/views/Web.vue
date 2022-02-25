@@ -4,6 +4,7 @@ div(:style="{borderColor:color}").modal
 	MainDesign(:data="data", :dId="dId", :color="color")
 	ProjectDesign(:data="data",:id="$route.params.id",:dId="dId")
 	WebDesign(:data="data")
+	WebLinkBtn(:data="data",:id="$route.params.id",:dId="dId")
 	Foot
 </template>
 
@@ -13,17 +14,19 @@ import Back from "@/components/Back";
 import MainDesign from "@/components/MainDesign";
 import ProjectDesign from "@/components/ProjectDesign";
 import WebDesign from "@/components/WebDesign";
+import WebLinkBtn from "@/components/WebLinkBtn";
 import Foot from "@/components/Foot";
 import Mixin from "@/mixins/Mixin";
 
 export default {
-  name: "Web",
+  name: "web",
   mixins: [Mixin],
   components: {
     Back,
     MainDesign,
     ProjectDesign,
     WebDesign,
+    WebLinkBtn,
     Foot,
   },
   data() {

@@ -20,11 +20,10 @@ import Back from "@/components/Back";
 import Mixin from "@/mixins/Mixin";
 
 export default {
-  name: "Typography",
+  name: "typography",
   mixins: [Mixin],
   components: {
     Back,
-    // Foot,
   },
   data() {
     return {
@@ -56,14 +55,12 @@ export default {
       if (this.cId < 0) {
         this.cId = 0;
       }
-      console.log(this.cId);
     },
     next() {
       this.cId++;
       if (this.cId >= this.res.length - 1) {
         this.cId = this.res.length - 1;
       }
-      console.log(this.cId);
     },
   },
 };

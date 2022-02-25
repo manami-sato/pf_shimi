@@ -2,7 +2,7 @@
 div.modal__info
 	div.modal__info--img
 		img(:src="`${path}img/${data.img}.png`")
-		div(v-if="dId == 1").modal__info--link
+		//- div(v-if="dId == 1").modal__info--link
 			a(v-for="(item, i) in data.link", :href="item.url", target="page") {{item.ttl}}
 	section
 		h1.modal__info--ttl {{data.ttl}}
@@ -48,25 +48,6 @@ export default {
       width: 50%;
       img {
         width: 100%;
-      }
-    }
-    &--link {
-      display: flex;
-      justify-content: flex-start;
-      gap: 8px;
-      width: 100%;
-      margin: 16px 0 0;
-      a {
-        @include modalBtnSet;
-        &:nth-of-type(3n-2) {
-          background: $yellow;
-        }
-        &:nth-of-type(3n-1) {
-          background: $pink;
-        }
-        &:nth-of-type(3n) {
-          background: $lightBlue;
-        }
       }
     }
     > section {
@@ -152,5 +133,59 @@ export default {
       }
     }
   }
+  // &__link {
+  //   display: flex;
+  //   justify-content: flex-start;
+  //   gap: 8px;
+  //   width: max-content;
+  //   margin: 0 0 8px;
+  //   position: fixed;
+  //   // right: 40px;
+  //   // bottom: 56px;
+  //   right: 40px;
+  //   bottom: 20px;
+  //   z-index: 10;
+  //   a {
+  //     display: flex;
+  //     justify-content: center;
+  //     @include modalBtnSet;
+  //     position: relative;
+  //     z-index: 1;
+  //     &:nth-of-type(3n-2) {
+  //       background: $yellow;
+  //     }
+  //     &:nth-of-type(3n-1) {
+  //       background: $pink;
+  //     }
+  //     &:nth-of-type(3n) {
+  //       background: $lightBlue;
+  //     }
+  //     &::after {
+  //       content: "";
+  //       display: block;
+  //       width: calc(100% + 4px);
+  //       height: 16px;
+  //       background: $deepBlue;
+  //       position: absolute;
+  //       inset: auto auto -14px auto;
+  //       // z-index: -1;
+  //       transform: translateY(0);
+  //       transition: 0.2s transform;
+  //     }
+  //     &:hover {
+  //       &::after {
+  //         // content: "";
+  //         // display: block;
+  //         // width: calc(100% + 4px);
+  //         // height: 24px;
+  //         // background: $deepBlue;
+  //         // position: absolute;
+  //         // inset: auto auto -14px auto;
+  //         transform: translateY(-4px);
+  //         // z-index: -1;
+  //       }
+  //     }
+  //   }
+  // }
 }
 </style>

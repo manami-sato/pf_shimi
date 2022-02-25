@@ -4,7 +4,7 @@ $pink: #fee1f2;
 $yellow: #fefddd;
 $orange: #fee9dc;
 $white: #ffffff;
-$font: "Outfit", "Yu Gothic Pr6N R", sans-serif;
+$font: "Outfit", "Zen Kaku Gothic New", sans-serif;
 
 @mixin ttlSet {
   font-size: 4rem;
@@ -41,7 +41,7 @@ $font: "Outfit", "Yu Gothic Pr6N R", sans-serif;
   $w: 48px,
   $h: 224px,
   $bg:
-    url("https://click.ecc.ac.jp/ecc/msatou/shimi/img/index_fv_bg_decoration_left.png"),
+    url("https://click.ecc.ac.jp/ecc/asimizu/portfolio/img/index_fv_bg_decoration_left.png"),
   $i: 0 auto auto 0
 ) {
   content: "";
@@ -96,7 +96,7 @@ $font: "Outfit", "Yu Gothic Pr6N R", sans-serif;
   gap: 10%;
   margin: $m;
   &:last-child {
-    margin: 0 auto ;
+    margin: 0 auto;
   }
   &--img {
     width: $iW;
@@ -120,13 +120,14 @@ $font: "Outfit", "Yu Gothic Pr6N R", sans-serif;
   line-height: $fs;
 }
 
-@mixin modalBtnSet {
+@mixin modalBtnSet($w: max-content, $h: auto, $br: 8px, $p: 4px 12px) {
   display: flex;
-  width: max-content;
+  width: $w;
+  height: $h;
   border: $deepBlue 2px solid;
-  border-radius: 8px;
+  border-radius: $br;
   box-shadow: 0 4px 0 $deepBlue;
-  padding: 4px 12px;
+  padding: $p;
   transform: 0;
   transition: 0.2s box-shadow, 0.2s transform;
   &:hover {
